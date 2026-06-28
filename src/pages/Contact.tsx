@@ -2,7 +2,7 @@ import { useState } from "react";
 import { useForm } from "react-hook-form";
 import { zodResolver } from "@hookform/resolvers/zod";
 import * as z from "zod";
-import { Mail, MapPin, Phone, MessageCircle, Send, CheckCircle2 } from "lucide-react";
+import { Mail, MapPin, Phone, MessageCircle, Send, CheckCircle2, AlertCircle } from "lucide-react";
 import { Form, FormControl, FormField, FormItem, FormLabel, FormMessage } from "@/components/ui/form";
 import { Input } from "@/components/ui/input";
 import { Textarea } from "@/components/ui/textarea";
@@ -50,13 +50,15 @@ const contactItems = [
     icon: Mail,
     label: "Email",
     content: "info.daharengineering@gmail.com",
-    href: "mailto:info.daharengineering@gmail.com",
+    href: null,
     colorClass: "bg-primary/8 text-primary",
   },
 ];
 
 export default function Contact() {
   const [submitted, setSubmitted] = useState(false);
+  const [error, setError] = useState<string | null>(null);
+  const [isLoading, setIsLoading] = useState(false);
 
   const form = useForm<z.infer<typeof formSchema>>({
     resolver: zodResolver(formSchema),
@@ -64,22 +66,33 @@ export default function Contact() {
     defaultValues: { name: "", email: "", phone: "", message: "" },
   });
 
-  function onSubmit(values: z.infer<typeof formSchema>) {
-    const subject = encodeURIComponent(`Website inquiry from ${values.name}`);
-    const body = encodeURIComponent(
-      [
-        `Name: ${values.name}`,
-        `Email: ${values.email}`,
-        `Phone: ${values.phone}`,
-        "",
-        "Requirements:",
-        values.message || "Not provided",
-      ].join("\n"),
-    );
+  async function onSubmit(values: z.infer<typeof formSchema>) {
+    setIsLoading(true);
+    setError(null);
 
-    window.location.href = `mailto:info.daharengineering@gmail.com?subject=${subject}&body=${body}`;
-    setSubmitted(true);
-    form.reset();
+    try {
+      const response = await fetch("http://localhost:5000/api/contact", {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+        },
+        body: JSON.stringify(values),
+      });
+
+      const data = await response.json();
+
+      if (data.success) {
+        setSubmitted(true);
+        form.reset();
+      } else {
+        setError(data.message || "Failed to send enquiry. Please try again.");
+      }
+    } catch (err) {
+      console.error("Error submitting form:", err);
+      setError("Failed to send enquiry. Please check your connection and try again.");
+    } finally {
+      setIsLoading(false);
+    }
   }
 
   return (
@@ -156,9 +169,9 @@ export default function Contact() {
                       <div className="w-16 h-16 rounded-full bg-green-50 border border-green-100 flex items-center justify-center">
                         <CheckCircle2 className="w-8 h-8 text-green-500" />
                       </div>
-                      <h3 className="text-xl font-heading font-bold text-gray-900">Email Draft Opened</h3>
+                      <h3 className="text-xl font-heading font-bold text-gray-900">Enquiry Sent Successfully</h3>
                       <p className="text-gray-500 text-sm max-w-sm leading-relaxed">
-                        Your email app should now show a prepared enquiry. Review it, then send it to complete your request.
+                        Thank you! Your enquiry has been sent successfully. We will contact you shortly.
                       </p>
                       <button
                         onClick={() => setSubmitted(false)}
@@ -170,6 +183,13 @@ export default function Contact() {
                   ) : (
                     <Form {...form}>
                       <form onSubmit={form.handleSubmit(onSubmit)} className="space-y-5 md:space-y-6">
+                        {error && (
+                          <div className="flex items-start gap-3 p-4 bg-red-50 border border-red-100 rounded-sm">
+                            <AlertCircle className="w-5 h-5 text-red-500 shrink-0 mt-0.5" />
+                            <p className="text-red-700 text-sm">{error}</p>
+                          </div>
+                        )}
+
                         <div className="grid grid-cols-1 sm:grid-cols-2 gap-4 md:gap-5">
                           <FormField
                             control={form.control}
@@ -247,11 +267,11 @@ export default function Contact() {
                         <div className="pt-1">
                           <Button
                             type="submit"
-                            disabled={!form.formState.isValid}
+                            disabled={!form.formState.isValid || isLoading}
                             className="px-8 py-6 text-sm font-bold rounded-sm h-auto disabled:bg-gray-200 disabled:text-gray-400 disabled:cursor-not-allowed bg-primary hover:bg-primary/85 text-white transition-all duration-200 shadow-md hover:shadow-lg hover:-translate-y-0.5 disabled:shadow-none disabled:translate-y-0 group"
                           >
                             <Send className="w-4 h-4 mr-2 group-hover:translate-x-0.5 transition-transform duration-200" />
-                            Open Email App
+                            {isLoading ? "Submitting..." : "Submit Enquiry"}
                           </Button>
                         </div>
                       </form>
@@ -266,3 +286,5 @@ export default function Contact() {
     </div>
   );
 }
+
+  
