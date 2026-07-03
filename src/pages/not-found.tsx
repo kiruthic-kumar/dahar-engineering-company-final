@@ -1,7 +1,16 @@
 import { Card, CardContent } from "@/components/ui/card";
 import { AlertCircle } from "lucide-react";
+import { useEffect } from "react";
+import { setSEO } from "@/lib/seo";
 
 export default function NotFound() {
+  useEffect(() => {
+    setSEO(
+      "Dahar Engineering Company — Page Not Found",
+      "Page not found. Explore Dahar Engineering Company’s products and services in Coimbatore — precision manufacturing of threaded rods, lead screws and jack screws. Visit Products or Contact."
+    );
+  }, []);
+
   return (
     <div className="min-h-screen w-full flex items-center justify-center bg-gray-50">
       <Card className="w-full max-w-md mx-4">

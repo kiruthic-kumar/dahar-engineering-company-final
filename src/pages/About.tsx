@@ -1,4 +1,6 @@
 import { Factory, Target, Shield, Users } from "lucide-react";
+import { useEffect } from "react";
+import { setSEO } from "@/lib/seo";
 import { RevealSection } from "@/components/RevealSection";
 import heroImg from "@assets/hero-cnc-2.jpg_1781200035733.jpeg";
 import aboutUsImg from "@assets/aboutus.webp_1781245313586.png";
@@ -11,6 +13,12 @@ const coreValues = [
 ];
 
 export default function About() {
+  useEffect(() => {
+    setSEO(
+      "Dahar Engineering Company — About Our Engineering Team",
+      "About Dahar Engineering Company, Coimbatore — engineering company specializing in precision manufacturing of threaded rods, lead screws and jack screws backed by experienced engineers."
+    );
+  }, []);
   return (
     <div className="min-h-screen bg-white">
       {/* Page Header */}

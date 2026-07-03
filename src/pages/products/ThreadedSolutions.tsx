@@ -1,4 +1,5 @@
 import { useState, useRef, useEffect, useCallback } from "react";
+import { setSEO } from "@/lib/seo";
 import { ChevronLeft, ChevronRight, X, FileText, Send } from "lucide-react";
 import { Link } from "wouter";
 import Breadcrumb from "@/components/products/Breadcrumb";
@@ -594,6 +595,13 @@ function CategorySection({ category }: { category: Category }) {
 }
 
 export default function ThreadedSolutions() {
+  useEffect(() => {
+    setSEO(
+      "Dahar Engineering Company — Threaded Solutions Manufacturer",
+      "Threaded solutions by Dahar Engineering Company in Coimbatore: threaded rods and threaded components manufactured with precision processes for industrial and OEM applications."
+    );
+  }, []);
+
   return (
     <div className="min-h-screen bg-white">
       <div className="bg-primary text-white py-20 md:py-28 relative overflow-hidden">

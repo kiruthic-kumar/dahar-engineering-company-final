@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import { useForm } from "react-hook-form";
 import { zodResolver } from "@hookform/resolvers/zod";
 import * as z from "zod";
@@ -9,6 +9,7 @@ import { Textarea } from "@/components/ui/textarea";
 import { Button } from "@/components/ui/button";
 import { RevealSection } from "@/components/RevealSection";
 import heroImg from "@assets/hero-cnc-1.jpg_1781200035734.jpg";
+import { setSEO } from "@/lib/seo";
 
 const formSchema = z.object({
   name: z.string().min(1, "Full name is required"),
@@ -56,6 +57,13 @@ const contactItems = [
 ];
 
 export default function Contact() {
+  useEffect(() => {
+    setSEO(
+      "Dahar Engineering Company — Contact & Quotes",
+      "Contact Dahar Engineering Company in Coimbatore for quotes on threaded rods, lead screws, jack screws and precision manufacturing services. Fast responses and technical support."
+    );
+  }, []);
+
   const [submitted, setSubmitted] = useState(false);
   const [error, setError] = useState<string | null>(null);
   const [isLoading, setIsLoading] = useState(false);

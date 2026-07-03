@@ -2,6 +2,8 @@ import heroImg3 from "@assets/hero-cnc-3.jpg_1781200035734.jpeg";
 import heroCnc1 from "@assets/hero-cnc-1.jpg_1781200035734.jpg";
 import { CheckCircle2 } from "lucide-react";
 import { RevealSection } from "@/components/RevealSection";
+import { useEffect } from "react";
+import { setSEO } from "@/lib/seo";
 
 const capabilities = [
   {
@@ -26,6 +28,13 @@ const equipment = [
 ];
 
 export default function Infrastructure() {
+  useEffect(() => {
+    setSEO(
+      "CNC Machining Facility | Precision Manufacturing | Dahar Engineering Company",
+      "Our Coimbatore CNC machining facility delivers precision manufacturing with milling, turning and grinding, plus rigorous quality control for threaded rods, lead screws and jack screws."
+    );
+  }, []);
+
   return (
     <div className="min-h-screen bg-white">
       {/* Page Header */}

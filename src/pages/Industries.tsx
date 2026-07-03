@@ -1,6 +1,15 @@
 import { CarFront, Plane, Tractor, HeartPulse, Building2, Wrench } from "lucide-react";
+import { useEffect } from "react";
+import { setSEO } from "@/lib/seo";
 
 export default function Industries() {
+  useEffect(() => {
+    setSEO(
+      "Dahar Engineering Company — Industries We Serve",
+      "Serving automotive, aerospace, automation and industrial sectors from Coimbatore. Dahar Engineering Company supplies precision components such as threaded rods, lead screws and jack screws."
+    );
+  }, []);
+
   const industries = [
     {
       name: "Automotive",

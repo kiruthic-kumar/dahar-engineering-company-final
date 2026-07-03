@@ -1,4 +1,5 @@
 import { useState, useEffect, useCallback, useRef } from "react";
+import { setSEO } from "@/lib/seo";
 import { Link } from "wouter";
 import { ArrowRight, CheckCircle2, Settings, ShieldCheck, Clock, Target, Flag, ChevronLeft, ChevronRight, ChevronDown, Wrench, Cpu, Gauge, ClipboardList } from "lucide-react";
 import { RevealSection } from "@/components/RevealSection";
@@ -133,6 +134,11 @@ export default function Home() {
   const goPrev = useCallback(() => goToSlide(currentSlide - 1), [currentSlide, goToSlide]);
 
   useEffect(() => {
+    setSEO(
+      "Dahar Engineering Company | Precision Manufacturing Company in Coimbatore",
+      "Dahar Engineering Company in Coimbatore — precision manufacturing company offering threaded solutions and industrial components: threaded rods, lead screws and jack screws."
+    );
+
     if (isPaused) return;
     timerRef.current = setInterval(goNext, 3000);
     return () => { if (timerRef.current) clearInterval(timerRef.current); };
@@ -167,11 +173,10 @@ export default function Home() {
             <span className="text-blue-200 text-xs font-semibold tracking-widest uppercase">Precision Engineering &amp; Manufacturing</span>
           </div>
           <h1 className="text-4xl sm:text-5xl md:text-6xl lg:text-7xl font-heading font-bold text-white tracking-tight leading-[1.08] mb-5 md:mb-7 animate-in fade-in slide-in-from-bottom-4 duration-700 delay-150">
-            Built with Precision.<br />
-            <span className="text-blue-300">Driven by Quality.</span>
+            Precision Manufacturing &amp; Engineering Solutions in Coimbatore
           </h1>
           <p className="text-base sm:text-lg md:text-xl text-blue-100/90 max-w-2xl mx-auto font-light mb-8 md:mb-10 animate-in fade-in slide-in-from-bottom-4 duration-700 delay-300">
-            Coimbatore's trusted partner for precision-engineered components, fixtures, tooling, and industrial solutions.
+            Dahar Engineering Company is a Coimbatore-based precision engineering and manufacturing company specializing in Threaded Solutions, SPM &amp; Automations, Tiny Parts, Custom Gauges, and custom industrial components for OEM and engineering applications.
           </p>
           <div className="flex flex-col sm:flex-row gap-3 justify-center items-center animate-in fade-in slide-in-from-bottom-4 duration-700 delay-500">
             <Link

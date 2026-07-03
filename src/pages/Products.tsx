@@ -1,4 +1,6 @@
 import { Link } from "wouter";
+import { useEffect } from "react";
+import { setSEO } from "@/lib/seo";
 import { Wrench, Settings, Cpu, Gauge, ArrowRight, Send } from "lucide-react";
 import threadedRod from "@assets/threaded-rod.webp_1781200021680.png";
 import spmLinear from "@assets/spm-linear-motion-system.jpg_1782459969444.png";
@@ -159,6 +161,12 @@ function CategoryCard({ cat }: { cat: CategoryItem }) {
 }
 
 export default function Products() {
+  useEffect(() => {
+    setSEO(
+      "Threaded Rod, Lead Screw & Jack Screw Manufacturer | Dahar Engineering Company",
+      "Products from Dahar Engineering Company: threaded rod, lead screw and jack screw manufacturing in Coimbatore. Precision components for OEMs with custom sizes and tight tolerances."
+    );
+  }, []);
   return (
     <div className="min-h-screen bg-white">
       <div className="bg-primary text-white py-20 md:py-28 relative overflow-hidden">
@@ -171,9 +179,9 @@ export default function Products() {
             <span className="w-7 h-0.5 bg-blue-400 inline-block" />
             Precision Manufacturing
           </p>
-          <h1 className="text-4xl md:text-6xl font-heading font-bold mb-4 leading-tight">Our Products</h1>
+          <h1 className="text-4xl md:text-6xl font-heading font-bold mb-4 leading-tight">Industrial Components &amp; Manufacturing Solutions</h1>
           <p className="text-base md:text-xl text-blue-100/85 max-w-xl font-light leading-relaxed">
-            Engineered to exact specifications. Manufactured for reliability.
+            Dahar Engineering Company offers a complete portfolio of precision manufacturing products and industrial solutions for OEM and industrial applications, including <Link href="/products/threaded-solutions" className="underline">Threaded Solutions</Link>, <Link href="/products/spm-automations" className="underline">SPM &amp; Automations</Link>, <Link href="/products/tiny-parts" className="underline">Tiny Parts</Link>, and <Link href="/products/custom-gauges" className="underline">Custom Gauges</Link>. Explore each category for specifications and manufacturing capabilities.
           </p>
         </div>
       </div>

@@ -1,4 +1,6 @@
 import EmptyCategoryLayout from "@/components/products/EmptyCategoryLayout";
+import { useEffect } from "react";
+import { setSEO } from "@/lib/seo";
 
 function CustomGaugesIcon() {
   return (
@@ -27,6 +29,13 @@ function CustomGaugesIcon() {
 }
 
 export default function CustomGauges() {
+  useEffect(() => {
+    setSEO(
+      "Dahar Engineering Company — Custom Gauges & Inspection",
+      "Custom gauges and inspection fixtures from Dahar Engineering Company, Coimbatore. Precision manufacturing for metrology and quality control with bespoke gauge design."
+    );
+  }, []);
+
   return (
     <EmptyCategoryLayout
       breadcrumbs={[{ label: "Products", href: "/products" }, { label: "Custom Gauges" }]}

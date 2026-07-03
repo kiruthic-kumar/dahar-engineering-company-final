@@ -1,8 +1,9 @@
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import { Send, Play, ArrowRight } from "lucide-react";
 import { Link } from "wouter";
 import Breadcrumb from "@/components/products/Breadcrumb";
 import VideoModal from "@/components/products/VideoModal";
+import { setSEO } from "@/lib/seo";
 
 import spmLinear from "@assets/spm-linear-motion-system.jpg_1782459969444.png";
 import spmPneumatic from "@assets/spm-multi-station-pneumatic-assembly-machine.jpg_1782459969443.png";
@@ -127,6 +128,13 @@ function MachineCard({ machine }: { machine: Machine }) {
 }
 
 export default function SpmAutomations() {
+  useEffect(() => {
+    setSEO(
+      "Dahar Engineering Company — Special Purpose Machines & Automation",
+      "SPM and industrial automation by Dahar Engineering Company, Coimbatore — design and manufacture of special purpose machines and automation systems, including precision components."
+    );
+  }, []);
+
   return (
     <div className="min-h-screen bg-white">
       <div className="bg-primary text-white py-20 md:py-28 relative overflow-hidden">
