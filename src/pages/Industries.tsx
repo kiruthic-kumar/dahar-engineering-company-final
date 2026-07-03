@@ -1,5 +1,6 @@
 import { CarFront, Plane, Tractor, HeartPulse, Building2, Wrench } from "lucide-react";
 import { useEffect } from "react";
+import { Link } from "wouter";
 import { setSEO } from "@/lib/seo";
 
 export default function Industries() {

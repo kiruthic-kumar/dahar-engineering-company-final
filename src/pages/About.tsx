@@ -1,5 +1,6 @@
 import { Factory, Target, Shield, Users } from "lucide-react";
 import { useEffect } from "react";
+import { Link } from "wouter";
 import { setSEO } from "@/lib/seo";
 import { RevealSection } from "@/components/RevealSection";
 import heroImg from "@assets/hero-cnc-2.jpg_1781200035733.jpeg";

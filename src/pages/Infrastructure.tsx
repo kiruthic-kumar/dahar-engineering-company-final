@@ -3,6 +3,7 @@ import heroCnc1 from "@assets/hero-cnc-1.jpg_1781200035734.jpg";
 import { CheckCircle2 } from "lucide-react";
 import { RevealSection } from "@/components/RevealSection";
 import { useEffect } from "react";
+import { Link } from "wouter";
 import { setSEO } from "@/lib/seo";
 
 const capabilities = [

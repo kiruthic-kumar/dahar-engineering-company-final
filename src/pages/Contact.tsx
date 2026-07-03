@@ -8,6 +8,7 @@ import { Input } from "@/components/ui/input";
 import { Textarea } from "@/components/ui/textarea";
 import { Button } from "@/components/ui/button";
 import { RevealSection } from "@/components/RevealSection";
+import { Link } from "wouter";
 import heroImg from "@assets/hero-cnc-1.jpg_1781200035734.jpg";
 import { setSEO } from "@/lib/seo";
 
