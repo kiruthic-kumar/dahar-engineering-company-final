@@ -55,7 +55,7 @@ export default function About() {
                   Dahar Engineering Company is a Coimbatore-based engineering and manufacturing company specializing in the design and production of precision industrial components. Since 2019, we have been delivering reliable engineering solutions through quality manufacturing, skilled workmanship, and customer-focused service.
                 </p>
                 <p>
-                  Our expertise spans across a wide range of industrial applications, providing crucial components that keep machinery running smoothly across India. We believe that precision is not just a metric, but a philosophy that guides every cut, every turn, and every inspection on our factory floor.
+                  Our expertise spans across a wide range of industrial applications, providing crucial components that keep machinery running smoothly across India. Learn more about our infrastructure and precision manufacturing capabilities on the <Link href="/infrastructure" className="underline">Infrastructure</Link> page and explore our product range on the <Link href="/products" className="underline">Products</Link> page.
                 </p>
               </div>
             </RevealSection>

@@ -1,6 +1,6 @@
 import { Link } from "wouter";
 import { useEffect } from "react";
-import { setSEO } from "@/lib/seo";
+import { setSEO, setBreadcrumbSchema } from "@/lib/seo";
 import { Wrench, Settings, Cpu, Gauge, ArrowRight, Send } from "lucide-react";
 import threadedRod from "@assets/threaded-rod.webp_1781200021680.png";
 import spmLinear from "@assets/spm-linear-motion-system.jpg_1782459969444.png";
@@ -166,6 +166,10 @@ export default function Products() {
       "Threaded Rod, Lead Screw & Jack Screw Manufacturer | Dahar Engineering Company",
       "Products from Dahar Engineering Company: threaded rod, lead screw and jack screw manufacturing in Coimbatore. Precision components for OEMs with custom sizes and tight tolerances."
     );
+    setBreadcrumbSchema([
+      { label: "Home", href: "/" },
+      { label: "Products" },
+    ]);
   }, []);
   return (
     <div className="min-h-screen bg-white">

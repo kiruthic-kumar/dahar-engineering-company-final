@@ -70,7 +70,7 @@ export default function Infrastructure() {
                 Precision-first manufacturing facility
               </h2>
               <p className="text-base md:text-lg text-gray-600 mb-8 leading-relaxed">
-                Our manufacturing facility in Coimbatore is designed for optimal workflow and precision output. We maintain a clean, organized, and safety-first environment that allows our skilled machinists to focus entirely on the quality of their work.
+                Our manufacturing facility in Coimbatore is designed for optimal workflow and precision output. We maintain a clean, organized, and safety-first environment that allows our skilled machinists to focus entirely on the quality of their work. Explore our threaded rods, lead screws, jack screws and other precision products on the <Link href="/products" className="underline">Products</Link> page.
               </p>
               <ul className="space-y-4">
                 {equipment.map((item, i) => (

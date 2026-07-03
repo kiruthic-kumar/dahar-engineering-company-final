@@ -1,5 +1,6 @@
 import { Card, CardContent } from "@/components/ui/card";
 import { AlertCircle } from "lucide-react";
+import { Link } from "wouter";
 import { useEffect } from "react";
 import { setSEO } from "@/lib/seo";
 
@@ -21,7 +22,7 @@ export default function NotFound() {
           </div>
 
           <p className="mt-4 text-sm text-gray-600">
-            Did you forget to add the page to the router?
+            Did you forget to add the page to the router? You can also return to the <Link href="/" className="underline">Home page</Link> or browse our <Link href="/products" className="underline">Products</Link>.
           </p>
         </CardContent>
       </Card>

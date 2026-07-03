@@ -1,6 +1,6 @@
 import EmptyCategoryLayout from "@/components/products/EmptyCategoryLayout";
 import { useEffect } from "react";
-import { setSEO } from "@/lib/seo";
+import { setSEO, setBreadcrumbSchema } from "@/lib/seo";
 
 function TinyPartsIcon() {
   return (
@@ -31,6 +31,11 @@ export default function TinyParts() {
       "Dahar Engineering Company — Precision Tiny Components",
       "Precision tiny components manufactured in Coimbatore by Dahar Engineering Company. Miniature machined parts for medical, instrumentation and industrial OEM applications produced to tight tolerances."
     );
+    setBreadcrumbSchema([
+      { label: "Home", href: "/" },
+      { label: "Products", href: "/products" },
+      { label: "Tiny Parts" },
+    ]);
   }, []);
 
   return (

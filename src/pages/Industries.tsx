@@ -59,7 +59,7 @@ export default function Industries() {
           <div className="text-center max-w-3xl mx-auto mb-16">
             <h2 className="text-3xl font-heading font-bold text-gray-900 mb-6">Versatile Engineering Solutions</h2>
             <p className="text-lg text-gray-600">
-              Our precision components are the silent workhorses inside machinery across multiple industries. We understand the specific material and tolerance requirements unique to each sector.
+              Our precision components are the silent workhorses inside machinery across multiple industries. We understand the specific material and tolerance requirements unique to each sector, and we invite you to explore our product categories like <Link href="/products/threaded-solutions" className="underline">Threaded Solutions</Link>, <Link href="/products/spm-automations" className="underline">SPM & Automations</Link>, and <Link href="/products/tiny-parts" className="underline">Tiny Parts</Link>.
             </p>
           </div>
 

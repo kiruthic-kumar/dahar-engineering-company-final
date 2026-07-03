@@ -120,7 +120,7 @@ export default function Contact() {
           </p>
           <h1 className="text-4xl md:text-6xl font-heading font-bold mb-4 leading-tight">Contact Us</h1>
           <p className="text-base md:text-xl text-blue-100/85 max-w-xl mx-auto font-light leading-relaxed">
-            Get in touch for quotes, inquiries, or custom engineering solutions.
+            Get in touch for quotes, inquiries, or custom engineering solutions. Prefer to review our precision product offerings first? Visit the <Link href="/products" className="underline">Products</Link> page.
           </p>
         </div>
       </div>

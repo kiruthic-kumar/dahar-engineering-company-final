@@ -1,5 +1,5 @@
 import { useState, useRef, useEffect, useCallback } from "react";
-import { setSEO } from "@/lib/seo";
+import { setSEO, setBreadcrumbSchema } from "@/lib/seo";
 import { ChevronLeft, ChevronRight, X, FileText, Send } from "lucide-react";
 import { Link } from "wouter";
 import Breadcrumb from "@/components/products/Breadcrumb";
@@ -600,6 +600,11 @@ export default function ThreadedSolutions() {
       "Dahar Engineering Company — Threaded Solutions Manufacturer",
       "Threaded solutions by Dahar Engineering Company in Coimbatore: threaded rods and threaded components manufactured with precision processes for industrial and OEM applications."
     );
+    setBreadcrumbSchema([
+      { label: "Home", href: "/" },
+      { label: "Products", href: "/products" },
+      { label: "Threaded Solutions" },
+    ]);
   }, []);
 
   return (

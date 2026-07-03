@@ -3,7 +3,7 @@ import { Send, Play, ArrowRight } from "lucide-react";
 import { Link } from "wouter";
 import Breadcrumb from "@/components/products/Breadcrumb";
 import VideoModal from "@/components/products/VideoModal";
-import { setSEO } from "@/lib/seo";
+import { setSEO, setBreadcrumbSchema } from "@/lib/seo";
 
 import spmLinear from "@assets/spm-linear-motion-system.jpg_1782459969444.png";
 import spmPneumatic from "@assets/spm-multi-station-pneumatic-assembly-machine.jpg_1782459969443.png";
@@ -133,6 +133,11 @@ export default function SpmAutomations() {
       "Dahar Engineering Company — Special Purpose Machines & Automation",
       "SPM and industrial automation by Dahar Engineering Company, Coimbatore — design and manufacture of special purpose machines and automation systems, including precision components."
     );
+    setBreadcrumbSchema([
+      { label: "Home", href: "/" },
+      { label: "Products", href: "/products" },
+      { label: "SPM & Automations" },
+    ]);
   }, []);
 
   return (
